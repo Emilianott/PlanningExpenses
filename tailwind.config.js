@@ -12,24 +12,30 @@ export default {
             top: '0rem',
           },
         },
-        "fade-in":{
-          "0%" :{
-            opacity:"0"
+        'fade-in': {
+          '0%': {
+            opacity: '0',
           },
-          "100%":{
-            opacity:"1"}
-        }
-
-
-
+          '100%': {
+            opacity: '1',
+          },
+        },
+        'fade-out': {
+          '100%': {
+            top:{
+              top:"0rem"
+            }
+          },
+          '0%': {
+            top: '-70rem',
+          },
+        },
       },
       animation: {
         'fade-down': 'fade-down 1s',
-        "fade-in": "fade-in 1s forwards 1s "
-
+        'fade-in': 'fade-in 1s forwards 1s ',
+        'fade-out': 'fade-out 2s ',
       },
-      
-      
     },
   },
   plugins: [],

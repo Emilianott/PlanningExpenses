@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Msg } from './Msg'
 
-export const NewExpenses = ({ expenses, setExpenses, setIsValidExpenses }) => {
+export const NewExpenses = ({  budget,  setBudget, setIsValidExpenses }) => {
   const [msg, setMsg] = useState('')
 
   const handleExpense = (e) => {
     e.preventDefault()
-    if (!expenses || expenses < 0) {
+    if (!budget || budget < 0) {
       setMsg('Not a valid budget')
       return
     }
@@ -27,7 +27,7 @@ export const NewExpenses = ({ expenses, setExpenses, setIsValidExpenses }) => {
           </label>
           <input
             onChange={(e) => {
-              setExpenses(Number(e.target.value))
+              setBudget(Number(e.target.value))
             }}
             type='number'
             className='font-bold sm:text-2xl  mt-12  sm:w-2/3 text-center h-10 bg-gray-300 border border-gray-300 rounded-lg'
@@ -39,7 +39,7 @@ export const NewExpenses = ({ expenses, setExpenses, setIsValidExpenses }) => {
           type='submit'
           value='ADD'
         />
-        {msg && <Msg>{msg}</Msg>}
+        {msg && <Msg type="text-red-700 sm:text-1xl  mt-5 border-l-8 border-red-700  w-2/3 flex font-[800] justify-center items-center">{msg}</Msg>}
       </form>
     </div>
   )

@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import closeBtn from '../assets/cerrar.svg'
+import { Msg } from './Msg'
 
-export const Modal = ({ setModal }) => {
-  const [formInfo, setFormInfo] = useState({})
+export const Modal = ({ setModal, saveExpense }) => {
+  const [formInfo, setFormInfo] = useState({
+    name: '',
+    amount: '',
+    category: '',
+  })
+  const [warning, setWarning] = useState('')
 
   const handleOnchange = (e) => {
     const { name, value } = e.target
@@ -13,11 +19,28 @@ export const Modal = ({ setModal }) => {
     }))
   }
 
-  console.log(formInfo)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const { name, amount, category } = formInfo
+
+    if ([name, amount, category].includes('')) {
+      setWarning('All fields are required')
+      setTimeout(() => {
+        setWarning('')
+      }, 3000)
+    } else {
+      saveExpense({
+        name,
+        amount,
+        category,
+      })
+      setModal(false)
+    }
+  }
 
   return (
-    <section className='absolute top-0 left-0 right-0 bottom-0 h-full w-full flex-col flex items-center border  bg-black opacity-[0.90] animate-fade-down'>
-      <div className='w-full  flex justify-end px-10 py-5'>
+    <section className='absolute top-0 left-0 right-0 bottom-0 w-full h-full flex-col flex items-center border  bg-black opacity-[0.90] animate-fade-down'>
+      <div className='w-full  flex justify-end px-5 md:p-10 py-5'>
         <img
           onClick={() => {
             setModal(false)
@@ -29,10 +52,16 @@ export const Modal = ({ setModal }) => {
       </div>
       <form
         className={`w-4/5 sm:w-1/3 h-auto flex items-center mt-10 md:w-2/4 sm:text-4xl trainsition ease-in duration-100 opacity-0 gap-10 flex-col animate-fade-in`}
-        action=''>
+        action=''
+        onSubmit={handleSubmit}>
         <legend className='text-white text-xl border-b-2 border-indigo-500  sm:pb-3 text-center  w-1/2 mt-5'>
           New Expense
         </legend>
+        {warning && (
+          <Msg type='text-red-800 text-2xl border-red-600 px-4 py-2 border-l-2 bg-white'>
+            {warning}
+          </Msg>
+        )}
         <div className='flex  sm:items-center  flex-col w-full gap-2'>
           <label
             className='ml-14 sm:ml-0 sm:items-start text-xl text-white '
@@ -70,8 +99,9 @@ export const Modal = ({ setModal }) => {
           </label>
           <select
             className='w-2/3 ml-14 sm:text-2xl sm:ml-0 rounded-lg'
-            name=''
-            id='category'>
+            name='category'
+            id='category'
+            onChange={handleOnchange}>
             <option className=' text-sm sm:text-2xl h-8 text-center  ' value=''>
               -- Select
             </option>
@@ -92,8 +122,10 @@ export const Modal = ({ setModal }) => {
             <option className=' text-sm h-8 text-center  ' value='Savings'>
               Savings
             </option>
-            <option className=' text-sm  h-8 text-center  ' value='Savings'>
-              Subcriptions
+            <option
+              className=' text-sm  h-8 text-center  '
+              value='Subscriptions'>
+              Subscriptions
             </option>
           </select>
         </div>
