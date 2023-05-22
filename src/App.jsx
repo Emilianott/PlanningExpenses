@@ -98,7 +98,7 @@ function App() {
                             expenseFilter={expenseFilter}
                         />
                     </main>
-                    <div className='w-16 absolute sm:bottom-16 bottom-5   sm:right-16 right-5 '>
+                    <div className='sm:w-16 absolute sm:bottom-16 bottom-5 w-8  sm:right-16 right-5 '>
                         <img
                             src={newExpense}
                             onClick={handleNewExpenses}
