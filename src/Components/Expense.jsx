@@ -21,7 +21,7 @@ export const Expense = ({ exp, setEditExpense, deleteExpense }) => {
     const { name, amount, category, id, date } = exp
 
     return (
-        <div className='border w-full sm:w-1/2 px-5  items-center flex pr-2 shadow-lg border-white '>
+        <div className='border w-full sm:w-1/2 px-5  items-center flex pr-2 shadow-2xl border-white '>
             <div className='w-4/5 flex'>
                 <img
                     src={dicIcons[category]}

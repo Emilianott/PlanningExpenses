@@ -74,7 +74,7 @@ function App() {
     }
 
     return (
-        <div className='h-screen overflow-auto '>
+        <div className='h-screen overflow-auto bg-[#fafafa]'>
             <Header
                 budget={budget}
                 expense={expense}
@@ -98,8 +98,9 @@ function App() {
                             expenseFilter={expenseFilter}
                         />
                     </main>
-                    <div className='sm:w-16 absolute sm:bottom-16 bottom-5 w-8  sm:right-16 right-5 '>
+                    <div className='sm:w-16 absolute sm:bottom-16 bottom-5 w-8 transition hover:scale-90  sm:right-16 right-5 '>
                         <img
+                        
                             src={newExpense}
                             onClick={handleNewExpenses}
                             alt='New Expense'

@@ -57,16 +57,16 @@ export const Modal = ({ setModal, saveExpense, editExpense, handleModal }) => {
 
     return (
         <section className='absolute top-0 left-0 right-0 bottom-0 w-full h-full flex-col flex items-center border  bg-black opacity-[0.90] animate-fade-down'>
-            <div className='w-full  flex justify-end px-5 md:p-10 py-5'>
+            <div className='w-full  flex justify-end px-5 md:p-10 py-5  '>
                 <img
                     onClick={handleModal}
-                    className='sm:w-12 w-7 '
+                    className='sm:w-12 w-7 hover:scale-[0.8]'
                     src={closeBtn}
                     alt='Close the website'
                 />
             </div>
             <form
-                className={`w-4/5 sm:w-1/3 h-auto flex items-center mt-10 md:w-2/4 sm:text-4xl trainsition ease-in duration-100 opacity-0 gap-10 flex-col animate-fade-in`}
+                className={` w-4/5 pb-10 sm:w-1/3 h-auto flex items-center border border-indigo-500 bg-[#03033d] mt-10 md:w-2/4 sm:text-4xl trainsition ease-in duration-100 opacity-0 gap-10 flex-col animate-fade-in`}
                 action=''
                 onSubmit={handleSubmit}>
                 <legend className='text-white text-xl sm:text-4xl border-b-2 border-indigo-500  sm:pb-3 text-center  w-1/2 mt-5'>
@@ -77,7 +77,7 @@ export const Modal = ({ setModal, saveExpense, editExpense, handleModal }) => {
                         {warning}
                     </Msg>
                 )}
-                <div className='flex  sm:items-center  flex-col w-full gap-2'>
+                <div className='flex  sm:items-center  flex-col w-full gap-2 opacity-[1]'>
                     <label
                         className='ml-14 sm:ml-0 sm:items-start text-xl text-white '
                         htmlFor='name'>
@@ -93,7 +93,7 @@ export const Modal = ({ setModal, saveExpense, editExpense, handleModal }) => {
                         placeholder='Add the name of the Expense'
                     />
                 </div>
-                <div className='flex  flex-col w-full gap-2 sm:items-center'>
+                <div className='flex  flex-col w-full gap-2 sm:items-center '>
                     <label
                         className='text-xl text-white sm:ml-0 ml-14'
                         htmlFor='amount'>
@@ -104,7 +104,7 @@ export const Modal = ({ setModal, saveExpense, editExpense, handleModal }) => {
                         name='amount'
                         id='amount'
                         type='number'
-                        className='w-4/6 text-sm h-8 text-center rounded-lg sm:ml-0 ml-14'
+                        className='w-4/6 text-sm h-8 text-center rounded-lg sm:ml-0 ml-14 '
                         placeholder='Add the amount of the expense '
                         onChange={handleOnchange}
                     />
@@ -162,7 +162,7 @@ export const Modal = ({ setModal, saveExpense, editExpense, handleModal }) => {
                 <input
                     type='submit'
                     value={editExpense.id ? 'Save Changes' : 'Add Expense'}
-                    className='text-white border border-white sm:py-1 bg-indigo-500 px-16 py-2 mt-8 rounded-xl '
+                    className='text-white border border-white sm:py-1 bg-indigo-500 sm:text-xl sm:px-16 px-8  mt-8 rounded-xl '
                 />
             </form>
         </section>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export const Filter = ({ setFilter, filter }) => {
     return (
-        <div className='w-full shadow-lg border-white  sm:w-1/2 px-5 h-24 mb-10 mt-16 sm:mt-0'>
+        <div className='w-full shadow-md border-white  sm:w-1/2 px-5 h-24 mb-10 mt-16 sm:mt-0'>
             <form action=''>
                 <div className='flex flex-col justify-center items-center'>
                     <label
