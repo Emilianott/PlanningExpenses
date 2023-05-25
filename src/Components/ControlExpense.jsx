@@ -52,7 +52,7 @@ export const ControlExpense = ({
             <div className='w-1/3 flex justify-center sm:p-8 md:p-0 lg:p-5 '>
                 <CircularProgressbar
                     value={percentage}
-                    text={`${percentage}% Wasted `}
+                    text={`${percentage}% Spent `}
                     styles={buildStyles({
                         pathColor: percentage > 100 ? "#dc2626":"#3b82f6",
                         textColor: percentage > 100 ? "#dc2626":"#3b82f6",

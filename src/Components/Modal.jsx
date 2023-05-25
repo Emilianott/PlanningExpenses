@@ -56,7 +56,7 @@ export const Modal = ({ setModal, saveExpense, editExpense, handleModal }) => {
     }
 
     return (
-        <section className='absolute top-0 left-0 right-0 bottom-0 w-full h-full flex-col flex items-center border  bg-black opacity-[0.90] animate-fade-down'>
+        <section className='absolute top-0 left-0 right-0 bottom-0 w-full h-full flex-col flex items-center   bg-black opacity-[0.90] animate-fade-down'>
             <div className='w-full  flex justify-end px-5 md:p-10 py-5  '>
                 <img
                     onClick={handleModal}
